@@ -3,25 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walumbra Epoxy</title>
+    <title>Walumbra</title>
+    <link id="favicon" rel="icon" type="image/png" href="favicon.png"> <!-- Default favicon -->
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #282c34;
-            color: white;
-            text-align: center;
+            background-color: #1a1a1a; /* Dark background */
+            color: #f0f0f0; /* Light text color */
             margin: 0;
             padding: 0;
         }
-        #gameCanvas {
-            border: 2px solid white;
-            margin-top: 20px;
+        header {
+            background-color: #333; /* Darker background for header */
+            padding: 10px;
+            position: relative; /* Set the header as a relative container */
+            height: 50px; /* Set a fixed height for the header */
+        }
+        .title-container {
+            display: flex; /* Flexbox for title and logo alignment */
+            align-items: center; /* Center items vertically */
+            position: absolute; /* Absolute positioning */
+            left: 15px; /* Position from the left */
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for vertical centering */
+        }
+        .title {
+            color: #f0f0f0; /* Light text color for title */
+            font-size: 2em;
+        }
+        .logo {
+            height: 40px; /* Adjust the height of the logo */
+            margin-left: 10px; /* Space between title and logo */
+            transform: scale(1.3); /* Scale the logo by 130% */
+        }
+        nav {
+            position: absolute; /* Absolute positioning */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust for horizontal centering */
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%) translateX(-50%); /* Adjust for vertical and horizontal centering */
+        }
+        nav a {
+            color: #f0f0f0; /* Light text color for links */
+            padding: 10px 15px;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #555; /* Hover effect */
+        }
+        .tab-content {
+            padding: 20px;
+        }
+        .tab {
+            display: none; /* Hide all tabs by default */
+        }
+        .tab.active {
+            display: block; /* Show the active tab */
+        }
+        .settings-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .settings-content select, 
+        .settings-content input[type="file"],
+        .settings-content button,
+        .settings-content input[type="text"] {
+            border: 1px solid #444;
+            background: #222;
+            color: #f0f0f0;
+        }
+        .settings-content button {
+            padding: 5px 10px;
+            border: none;
+            background: #555;
+            cursor: pointer;
+        }
+        .settings-content button:hover {
+            background: #666;
+        }
+        /* Theme styles */
+        .light-theme {
+            background-color: #f0f0f0; /* Light background */
+            color: #1a1a1a; /* Dark text color */
+        }
+        .light-theme header {
+            background-color: #e0e0e0; /* Light header background */
+        }
+        .dark-theme {
+            background-color: #1a1a1a; /* Dark background */
+            color: #f0f0f0; /* Light text color */
+        }
+        .dark-theme header {
+            background-color: #333; /* Darker header background */
         }
     </style>
 </head>
-<body>
-    <h1>Walumbra Epoxy Game</h1>
-    <canvas id="gameCanvas" width="800" height="600"></canvas>
-    <script src="script.js"></script>
+<body class="dark-theme"> <!-- Default theme -->
+    <header>
+        <div class="title-container">
+            <div class="title">Walumbra</div>
+            <img src="logo.png" alt="Logo" class="logo" id="header-logo">
+        </div>
+        <nav>
+            <a href="#" data-tab="home">Home</a>
+            <a href="#" data-tab="games">Games</a>
+            <a href="#" data-tab="apps">Apps</a>
+            <a href="#" data-tab="search">Search</a>
+            <a href="#" data-tab="settings">Settings</a>
+        </nav>
+    </header>
+    <div class="tab-content">
+        <div id="home" class="tab active">
+            <h2>Welcome to Walumbra!</h2>
+            <p>This is the home page.</p>
+        </div>
+        <div id="games" class="tab">
+            <h2>Games</h2>
+            <p>Content for the Games tab.</p>
+        </div>
+        <div id="apps" class="tab">
+            <h2>Apps</h2>
+            <p>Content for the Apps tab.</p>
+        </div>
+        <div id="search" class="tab">
+            <h2>Search</h2>
+            <p>Working on...</p>
+        </div>
+        <div id="settings" class="tab">
+            <h2>Settings</h2>
+            <div class="settings-content">
+                <label for="favicon-select">Select Favicon:</label>
+                <select id="favicon-select">
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+                <label for="favicon-upload">Upload Favicon:</label>
+                <input type="file" id="favicon-upload" accept="image/x-icon,image/png">
+                <button id="update-favicon">Update Favicon</button>
+                <label for="tab-name">Change Tab Name:</label>
+                <input type="text" id="tab-name" placeholder="Enter new tab name">
+                <button id="update-tab-name">Update Tab Name</button>
+                <label for="theme-select">Select Theme:</label>
+                <select id="theme-select">
+                    <option value="dark-theme">Dark</option>
+                    <option value="light-theme">Light</option>
+                </select>
+                <button id="apply-theme">Apply Theme</button>
+                <button id="save-changes">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Tab functionality
+        document.querySelectorAll('nav a').forEach(tabLink => {
+            tabLink.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+
+                // Add active class to the clicked tab
+                const tabId = tabLink.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Initialize with Home tab active
+        document.querySelector('nav a[data-tab="home"]').click();
+
+        // Populate favicon dropdown
+        const faviconFolder = 'favicons/';
+        const favicons = ['blank.ico', 'classroom.png', 'default.png', 'gmail.ico', 'google.ico'];
+        const faviconSelect = document.getElementById('favicon-select');
+        
+        favicons.forEach(icon => {
+            const option = document.createElement('option');
+            option.value = faviconFolder + icon;
+            option.textContent = icon.split('.')[0].replace(/_/g, ' '); // Display name (e.g., "google")
+            faviconSelect.appendChild(option);
+        });
+
+        // Load saved settings
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedFavicon = localStorage.getItem('favicon');
+            const savedTheme = localStorage.getItem('theme');
+            const savedTabName = localStorage.getItem('tabName');
+
+            if (savedFavicon) {
+                document.getElementById('favicon').href = savedFavicon;
+                faviconSelect.value = savedFavicon;
+            }
+            if (savedTheme) {
+                document.body.className = savedTheme;
+                document.getElementById('theme-select').value = savedTheme;
+            }
+            if (savedTabName) {
+                document.title = savedTabName;
+                document.getElementById('tab-name').value = savedTabName;
+            }
+        });
+
+        // Update favicon
+        document.getElementById('update-favicon').addEventListener('click', () => {
+            const selectedFavicon = faviconSelect.value;
+            const file = document.getElementById('favicon-upload').files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('favicon').href = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                document.getElementById('favicon').href = selectedFavicon;
+            }
+        });
+
+        // Handle favicon upload
+        document.getElementById('favicon-upload').addEventListener('change', () => {
+            // This will be handled by the update button
+        });
+
+        // Update tab name
+        document.getElementById('update-tab-name').addEventListener('click', () => {
+            const newName = document.getElementById('tab-name').value;
+            document.title = newName;
+        });
+
+        // Apply theme
+        document.getElementById('apply-theme').addEventListener('click', () => {
+            const theme = document.getElementById('theme-select').value;
+            document.body.className = theme;
+        });
+
+        // Save changes
+        document.getElementById('save-changes').addEventListener('click', () => {
+            const favicon = document.getElementById('favicon').href;
+            const theme = document.body.className;
+            const tabName = document.title;
+
+            localStorage.setItem('favicon', favicon);
+            localStorage.setItem('theme', theme);
+            localStorage.setItem('tabName', tabName);
+        });
+    </script>
 </body>
 </html>
