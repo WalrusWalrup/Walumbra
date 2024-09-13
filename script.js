@@ -1,47 +1,65 @@
-// script.js
+// Tab functionality
+document.querySelectorAll('nav a').forEach(tabLink => {
+    tabLink.addEventListener('click', (event) => {
+        event.preventDefault();
 
-// Get the canvas element and its context
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
+        // Remove active class from all tabs
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
 
-// Example: Draw a simple moving square
-let x = 50;
-let y = 50;
-let speedX = 2;
-let speedY = 2;
+        // Add active class to the clicked tab
+        const tabId = tabLink.getAttribute('data-tab');
+        document.getElementById(tabId).classList.add('active');
+    });
+});
 
-function draw() {
-    // Clear the canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Draw a green square
-    ctx.fillStyle = 'green';
-    ctx.fillRect(x, y, 50, 50);
+// Initialize with Home tab active
+document.querySelector('nav a[data-tab="home"]').click();
 
-    // Update position
-    x += speedX;
-    y += speedY;
+// Populate favicon dropdown
+const faviconFolder = 'favicons/';
+const favicons = ['blank.ico', 'classroom.png', 'default.png', 'gmail.ico', 'google.ico'];
+const faviconSelect = document.getElementById('favicon-select');
 
-    // Bounce off the edges
-    if (x + 50 > canvas.width || x < 0) speedX = -speedX;
-    if (y + 50 > canvas.height || y < 0) speedY = -speedY;
+favicons.forEach(icon => {
+    const option = document.createElement('option');
+    option.value = faviconFolder + icon;
+    option.textContent = icon.split('.')[0].replace(/_/g, ' '); // Display name (e.g., "google")
+    faviconSelect.appendChild(option);
+});
 
-    // Continue the animation
-    requestAnimationFrame(draw);
-}
+// Update favicon
+document.getElementById('update-favicon').addEventListener('click', () => {
+    const selectedFavicon = faviconSelect.value;
+    const file = document.getElementById('favicon-upload').files[0];
 
-draw();
-
-// Example: Fetch data from an API (limited proxy-like behavior)
-async function fetchData(url) {
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error('Error fetching data:', error);
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('favicon').href = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    } else {
+        document.getElementById('favicon').href = selectedFavicon;
     }
-}
+});
 
-// Replace with a valid API URL if you have one
-fetchData('https://api.example.com/data');
+// Handle favicon upload
+document.getElementById('favicon-upload').addEventListener('change', () => {
+    // This will be handled by the update button
+});
+
+// Update tab name
+document.getElementById('update-tab-name').addEventListener('click', () => {
+    const newName = document.getElementById('tab-name').value.trim();
+    if (newName) {
+        document.title = newName; // Update tab name
+    }
+});
+
+// Apply selected theme
+document.getElementById('apply-theme').addEventListener('click', () => {
+    const selectedTheme = document.getElementById('theme-select').value;
+    document.body.className = selectedTheme; // Update the body class to apply the selected theme
+});
