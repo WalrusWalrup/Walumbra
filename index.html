@@ -99,6 +99,36 @@
         .dark-theme header {
             background-color: #333; /* Darker header background */
         }
+        /* Game list styles */
+        .game-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between game items */
+            padding: 20px;
+        }
+        .game-item {
+            width: 120px; /* Width for square pictures */
+            text-align: center;
+            cursor: pointer; /* Indicate clickable items */
+        }
+        .game-item img {
+            width: 100%;
+            height: auto; /* Maintain aspect ratio */
+        }
+        .game-item h3 {
+            font-size: 1em;
+            margin: 5px 0;
+        }
+        /* Iframe styles */
+        iframe#innerFrame {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 1000; /* Ensure iframe is on top */
+        }
     </style>
 </head>
 <body class="dark-theme"> <!-- Default theme -->
@@ -122,7 +152,9 @@
         </div>
         <div id="games" class="tab">
             <h2>Games</h2>
-            <p>Content for the Games tab.</p>
+            <div class="game-list" id="game-list">
+                <!-- Game entries will be dynamically added here -->
+            </div>
         </div>
         <div id="apps" class="tab">
             <h2>Apps</h2>
@@ -155,101 +187,6 @@
             </div>
         </div>
     </div>
-    <script>
-        // Tab functionality
-        document.querySelectorAll('nav a').forEach(tabLink => {
-            tabLink.addEventListener('click', (event) => {
-                event.preventDefault();
-
-                // Remove active class from all tabs
-                document.querySelectorAll('.tab').forEach(tab => {
-                    tab.classList.remove('active');
-                });
-
-                // Add active class to the clicked tab
-                const tabId = tabLink.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-
-        // Initialize with Home tab active
-        document.querySelector('nav a[data-tab="home"]').click();
-
-        // Populate favicon dropdown
-        const faviconFolder = 'favicons/';
-        const favicons = ['blank.ico', 'classroom.png', 'default.png', 'gmail.ico', 'google.ico'];
-        const faviconSelect = document.getElementById('favicon-select');
-        
-        favicons.forEach(icon => {
-            const option = document.createElement('option');
-            option.value = faviconFolder + icon;
-            option.textContent = icon.split('.')[0].replace(/_/g, ' '); // Display name (e.g., "google")
-            faviconSelect.appendChild(option);
-        });
-
-        // Load saved settings
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedFavicon = localStorage.getItem('favicon');
-            const savedTheme = localStorage.getItem('theme');
-            const savedTabName = localStorage.getItem('tabName');
-
-            if (savedFavicon) {
-                document.getElementById('favicon').href = savedFavicon;
-                faviconSelect.value = savedFavicon;
-            }
-            if (savedTheme) {
-                document.body.className = savedTheme;
-                document.getElementById('theme-select').value = savedTheme;
-            }
-            if (savedTabName) {
-                document.title = savedTabName;
-                document.getElementById('tab-name').value = savedTabName;
-            }
-        });
-
-        // Update favicon
-        document.getElementById('update-favicon').addEventListener('click', () => {
-            const selectedFavicon = faviconSelect.value;
-            const file = document.getElementById('favicon-upload').files[0];
-
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('favicon').href = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            } else {
-                document.getElementById('favicon').href = selectedFavicon;
-            }
-        });
-
-        // Handle favicon upload
-        document.getElementById('favicon-upload').addEventListener('change', () => {
-            // This will be handled by the update button
-        });
-
-        // Update tab name
-        document.getElementById('update-tab-name').addEventListener('click', () => {
-            const newName = document.getElementById('tab-name').value;
-            document.title = newName;
-        });
-
-        // Apply theme
-        document.getElementById('apply-theme').addEventListener('click', () => {
-            const theme = document.getElementById('theme-select').value;
-            document.body.className = theme;
-        });
-
-        // Save changes
-        document.getElementById('save-changes').addEventListener('click', () => {
-            const favicon = document.getElementById('favicon').href;
-            const theme = document.body.className;
-            const tabName = document.title;
-
-            localStorage.setItem('favicon', favicon);
-            localStorage.setItem('theme', theme);
-            localStorage.setItem('tabName', tabName);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
