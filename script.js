@@ -50,16 +50,63 @@ document.getElementById('favicon-upload').addEventListener('change', () => {
     // This will be handled by the update button
 });
 
-// Update tab name
-document.getElementById('update-tab-name').addEventListener('click', () => {
-    const newName = document.getElementById('tab-name').value.trim();
-    if (newName) {
-        document.title = newName; // Update tab name
+// Load saved settings
+document.addEventListener('DOMContentLoaded', () => {
+    const savedFavicon = localStorage.getItem('favicon');
+    const savedTheme = localStorage.getItem('theme');
+    const savedTabName = localStorage.getItem('tabName');
+
+    if (savedFavicon) {
+        document.getElementById('favicon').href = savedFavicon;
+        faviconSelect.value = savedFavicon;
+    }
+    if (savedTheme) {
+        document.body.className = savedTheme;
+        document.getElementById('theme-select').value = savedTheme;
+    }
+    if (savedTabName) {
+        document.title = savedTabName;  // Update only the browser tab title, not the navigation tabs
     }
 });
 
-// Apply selected theme
+// Save favicon
+document.getElementById('update-favicon').addEventListener('click', () => {
+    const selectedFavicon = faviconSelect.value;
+    localStorage.setItem('favicon', selectedFavicon);
+    document.getElementById('favicon').href = selectedFavicon;
+});
+
+// Save tab name (for browser tab, not navigation tab)
+document.getElementById('update-tab-name').addEventListener('click', () => {
+    const newTabName = document.getElementById('tab-name').value;
+    localStorage.setItem('tabName', newTabName);
+    document.title = newTabName;  // Only change the browser tab's name
+});
+
+// Apply theme
 document.getElementById('apply-theme').addEventListener('click', () => {
     const selectedTheme = document.getElementById('theme-select').value;
-    document.body.className = selectedTheme; // Update the body class to apply the selected theme
+    localStorage.setItem('theme', selectedTheme);
+    document.body.className = selectedTheme;
+});
+
+// Add games to the list with click events
+const games = [
+    {name: 'Slope', img: 'game-icons/slope.png', url: 'https://slope3d.net/game/slope/'},
+    {name: 'Stickman Parkour', img: 'game-icons/stickman-parkour.png', url: 'https://dnrweqffuwjtx.cloudfront.net/games/2024/construct/219/stickman-parkour/index.html'}
+];
+
+const gameList = document.getElementById('game-list');
+
+games.forEach(game => {
+    const gameItem = document.createElement('div');
+    gameItem.className = 'game-item';
+    gameItem.innerHTML = `
+        <img src="${game.img}" alt="${game.name}">
+        <h3>${game.name}</h3>
+    `;
+    gameItem.addEventListener('click', () => {
+        window.open(game.url, '_blank'); // Open the game in a new tab or window
+    });
+    gameList.appendChild(gameItem);
 });
