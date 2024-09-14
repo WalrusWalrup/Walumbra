@@ -93,11 +93,21 @@ document.getElementById('apply-theme').addEventListener('click', () => {
 // Add games to the list with click events
 const games = [
     {name: 'Slope', img: 'game-icons/slope.png', url: 'https://slope3d.net/game/slope/'},
-    {name: 'Stickman Parkour', img: 'game-icons/stickman-parkour.png', url: 'https://dnrweqffuwjtx.cloudfront.net/games/2024/construct/219/stickman-parkour/index.html'}
+    {name: 'Stickman Parkour', img: 'game-icons/stickman-parkour.png', url: 'https://dnrweqffuwjtx.cloudfront.net/games/2024/construct/219/stickman-parkour/index.html'},
+    {name: 'Deathrun 3D', img: 'game-icons/deathrun3d.png', url: 'https://deathrun3d.github.io/file/'}
 ];
 
 const gameList = document.getElementById('game-list');
+const gameFrame = document.getElementById('game-frame');
+const exitButton = document.getElementById('exit-game');
 
+function closeGame() {
+    gameFrame.src = ''; // Clear the iframe src to stop the game
+    gameFrame.style.display = 'none'; // Hide the iframe
+    exitButton.style.display = 'none'; // Hide the exit button
+}
+
+// Load games into the list
 games.forEach(game => {
     const gameItem = document.createElement('div');
     gameItem.className = 'game-item';
@@ -106,7 +116,33 @@ games.forEach(game => {
         <h3>${game.name}</h3>
     `;
     gameItem.addEventListener('click', () => {
-        window.open(game.url, '_blank'); // Open the game in a new tab or window
+        gameFrame.src = game.url; // Load game in iframe
+
+        // Apply specific dimensions for "Deathrun 3D"
+        if (game.name === 'Deathrun 3D') {
+            gameFrame.style.width = '1000px';
+            gameFrame.style.height = '700px';
+        } else {
+            gameFrame.style.width = '100%'; // Default width
+            gameFrame.style.height = '600px'; // Default height
+        }
+
+        gameFrame.style.display = 'block'; // Show the iframe
+        exitButton.style.display = 'block'; // Show the exit button
+        document.getElementById('games').classList.add('active'); // Set "Games" tab active
     });
     gameList.appendChild(gameItem);
+});
+
+// Exit game button functionality
+exitButton.addEventListener('click', () => {
+    closeGame(); // Close the game
+    document.getElementById('games').classList.add('active'); // Return to "Games" tab
+});
+
+// Handle tab visibility change
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        closeGame(); // Close the game if the user switches tabs
+    }
 });
