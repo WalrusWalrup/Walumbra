@@ -94,7 +94,7 @@ document.getElementById('apply-theme').addEventListener('click', () => {
 const games = [
     {name: 'Slope', img: 'game-icons/slope.png', url: 'https://slope3d.net/game/slope/'},
     {name: 'Stickman Parkour', img: 'game-icons/stickman-parkour.png', url: 'https://dnrweqffuwjtx.cloudfront.net/games/2024/construct/219/stickman-parkour/index.html'},
-    {name: 'Deathrun 3D', img: 'game-icons/deathrun3d.png', url: 'https://deathrun3d.github.io/file/'}
+    {name: 'Deathrun 3D', img: 'game-icons/deathrun3d.png', url: 'https://tvz2304.github.io/g/slope'} //old link:  https://deathrun3d.github.io/file/
 ];
 
 const gameList = document.getElementById('game-list');
