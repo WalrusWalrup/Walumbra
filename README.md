@@ -4,6 +4,6 @@ Versions:
   Basic layout
   Settings tab introduced
 14/9/2024 - Version 1.1:
-  Code re-organised
+  Code reorganised
   First few games
   Bug fixes
