@@ -7,3 +7,6 @@ Versions:
   Code reorganised
   First few games
   Bug fixes
+15/9/2024 - Version 1.1.5:
+  New games
+  Bug fixes
