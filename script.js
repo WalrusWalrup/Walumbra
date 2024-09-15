@@ -116,7 +116,7 @@ const games = [
     {name: 'Moto X3M', img: 'game-icons/motox3m.png', url: 'https://moto-x3m-online.github.io/file/'}, 
     {name: 'Moto X3M Spooky Land', img: 'game-icons/motox3m-spooky-land.jpg', url: 'https://motox3monline.github.io/g/moto-x3m-spooky-land/'}, // blocked
     {name: 'Moto X3M Pool Party', img: 'game-icons/motox3m-pool-party.jpeg', url: 'https://motox3monline.github.io/g/moto-x3m-pool-party/'}, // blocked
-    {name: 'Grim Donut', img: 'game-icons/grimdonut.png', url: 'https://www.pinkbike.com/sandbox/grimdonutgame/ '} //blocked
+    {name: 'Tomb of the Mask', img: 'game-icons/tomb-of-the-mask.png', url: 'https://classwork188.github.io/g8/tomb-of-the-mask/'}, //blocked
 ];
 
 const gameList = document.getElementById('game-list');
