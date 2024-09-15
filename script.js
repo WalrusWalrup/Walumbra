@@ -122,11 +122,33 @@ const games = [
 const gameList = document.getElementById('game-list');
 const gameFrame = document.getElementById('game-frame');
 const exitButton = document.getElementById('exit-game');
+const fullscreenButton = document.getElementById('fullscreen-button');
 
+// Toggle button visibility based on game state
+function updateButtonVisibility(showGame) {
+    if (showGame) {
+        exitButton.style.display = 'block'; // Show the exit button
+        fullscreenButton.style.display = 'block'; // Show the fullscreen button
+    } else {
+        exitButton.style.display = 'none'; // Hide the exit button
+        fullscreenButton.style.display = 'none'; // Hide the fullscreen button
+    }
+}
+
+// Fullscreen toggle function
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        gameFrame.requestFullscreen().catch(err => console.error("Failed to enter fullscreen mode:", err));
+    } else {
+        document.exitFullscreen().catch(err => console.error("Failed to exit fullscreen mode:", err));
+    }
+}
+
+// Close game function
 function closeGame() {
     gameFrame.src = ''; // Clear the iframe src to stop the game
     gameFrame.style.display = 'none'; // Hide the iframe
-    exitButton.style.display = 'none'; // Hide the exit button
+    updateButtonVisibility(false); // Hide buttons
 }
 
 // Load games into the list
@@ -138,38 +160,13 @@ games.forEach(game => {
         <h3>${game.name}</h3>
     `;
     gameItem.addEventListener('click', () => {
-        gameFrame.src = game.url; // Load game in iframe
-
-        // Apply specific dimensions for "Deathrun 3D"
-        if (game.name === 'Deathrun 3D') {
-            gameFrame.style.width = '1000px';
-            gameFrame.style.height = '700px';
-        } else if (game.name === 'Minecraft') {
-            window.open(game.url, '_blank'); //opens minecraft on a new tab
-            return; //stops further execution
-        } else if (game.name === 'Retarded Slither.io') {
-            gameFrame.style.height = '750px';
-        } else {
-            gameFrame.style.width = '100%'; // Default width
-            gameFrame.style.height = '600px'; // Default height
-        }
-
+        gameFrame.src = game.url;
         gameFrame.style.display = 'block'; // Show the iframe
-        exitButton.style.display = 'block'; // Show the exit button
-        document.getElementById('games').classList.add('active'); // Set "Games" tab active
+        updateButtonVisibility(true); // Show buttons
     });
     gameList.appendChild(gameItem);
 });
 
-// Exit game button functionality
-exitButton.addEventListener('click', () => {
-    closeGame(); // Close the game
-    document.getElementById('games').classList.add('active'); // Return to "Games" tab
-});
-
-// Handle tab visibility change
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        closeGame(); // Close the game if the user switches tabs
-    }
-});
+// Add event listeners to buttons
+exitButton.addEventListener('click', closeGame);
+fullscreenButton.addEventListener('click', toggleFullScreen);
