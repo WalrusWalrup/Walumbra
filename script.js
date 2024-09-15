@@ -94,7 +94,29 @@ document.getElementById('apply-theme').addEventListener('click', () => {
 const games = [
     {name: 'Slope', img: 'game-icons/slope.png', url: 'https://tvz2304.github.io/g/slope'}, //old one: https://slope3d.net/game/slope/
     {name: 'Stickman Parkour', img: 'game-icons/stickman-parkour.png', url: 'https://dnrweqffuwjtx.cloudfront.net/games/2024/construct/219/stickman-parkour/index.html'},
-    {name: 'Deathrun 3D', img: 'game-icons/deathrun3d.png', url: 'https://deathrun3d.github.io/file/'}
+    {name: 'Deathrun 3D', img: 'game-icons/deathrun3d.png', url: 'https://deathrun3d.github.io/file/'},
+    {name: 'Just Fall', img: 'game-icons/just-fall.png', url: 'https://just-fall.github.io/file/'}, 
+    {name: '1v1 LOL', img: 'game-icons/1v1lol.png', url: 'https://1v1lolonline.github.io/1v1-lol-2/'},
+    {name: 'Stickman Hook', img: 'game-icons/stickman-hook.jpg', url: 'https://stickmanhookonline.github.io/file/'}, 
+    {name: 'Minecraft', img: 'game-icons/minecraft.jpg', url: 'https://eaglercraftonline.github.io/go/minecraft-1.5.2/'}, // fix
+    {name: 'Retarded Geometry Dash', img: 'game-icons/cursed-geometry-dash.png', url: 'https://geometrylite.github.io/'}, 
+    {name: 'Happy Wheels', img: 'game-icons/happywheels.jpg', url: ' https://cbgamesdev.github.io/chilibowlflash/hw/index.html'}, 
+    {name: 'Suika Game', img: 'game-icons/suika-game.png', url: 'https://suika-game.github.io/file/'}, 
+    {name: 'Hole.io', img: 'game-icons/hole-io.png', url: 'https://holeioonline.github.io/file/'}, 
+    {name: 'FNAF', img: 'game-icons/fnaf.jpg', url: 'https://fnaf-game.github.io/five-nights-at-freddys/'}, 
+    {name: 'FNAF 2', img: 'game-icons/fnaf2.png', url: 'https://cbgamesdev.github.io/chilibowlflash/FNAF/2/index.html'}, 
+    {name: 'FNAF 3', img: 'game-icons/fnaf3.png', url: 'https://biologyedu1808.github.io/g7/five-nights-at-freddys-3/'}, 
+    {name: 'FNAF 4', img: 'game-icons/fnaf4.png', url: 'https://fnaf-4.github.io/games/FNAF4/index.html'}, 
+    {name: 'Retarded Slither.io', img: 'game-icons/slither-io.png', url: 'https://classroom247.pages.dev/slit/'}, 
+    {name: 'Cookie Clicker', img: 'game-icons/cookie-clicker.png', url: 'https://cookieclickerunblocked.github.io/games/cookie-clicker/index.html'}, 
+    {name: 'Smash Karts', img: 'game-icons/smash-karts.jpg', url: 'https://webgltest-17af1.firebaseapp.com/'}, 
+    {name: 'Among Us', img: 'game-icons/amongus.jpg', url: 'https://burgerbounty.github.io/s/among-us/'}, 
+    {name: 'Drift Boss', img: 'game-icons/drift-boss.jpg', url: 'https://driftbossonline.github.io/file/'}, 
+    {name: 'Drive Mad', img: 'game-icons/drive-mad.png', url: 'https://drivemadonline.github.io/file/ '},
+    {name: 'Moto X3M', img: 'game-icons/motox3m.png', url: 'https://moto-x3m-online.github.io/file/'}, 
+    {name: 'Moto X3M Spooky Land', img: 'game-icons/motox3m-spooky-land.jpg', url: 'https://motox3monline.github.io/g/moto-x3m-spooky-land/'}, 
+    {name: 'Moto X3M Pool Party', img: 'game-icons/motox3m-pool-party.jpeg', url: 'https://motox3monline.github.io/g/moto-x3m-pool-party/'}, 
+    {name: 'Grim Donut', img: 'game-icons/grimdonut.png', url: 'https://www.pinkbike.com/sandbox/grimdonutgame/ '}
 ];
 
 const gameList = document.getElementById('game-list');
@@ -122,6 +144,11 @@ games.forEach(game => {
         if (game.name === 'Deathrun 3D') {
             gameFrame.style.width = '1000px';
             gameFrame.style.height = '700px';
+        } else if (game.name === 'Minecraft') {
+            window.open(game.url, '_blank'); //opens minecraft on a new tab
+            return; //stops further execution
+        } else if (game.name === 'Retarded Slither.io') {
+            gameFrame.style.height = '750px';
         } else {
             gameFrame.style.width = '100%'; // Default width
             gameFrame.style.height = '600px'; // Default height
