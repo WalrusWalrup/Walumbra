@@ -95,7 +95,7 @@ const games = [
     {name: 'Slope', img: 'game-icons/slope.png', url: 'https://tvz2304.github.io/g/slope'}, //old one: https://slope3d.net/game/slope/
     {name: 'Stickman Parkour', img: 'game-icons/stickman-parkour.png', url: 'https://dnrweqffuwjtx.cloudfront.net/games/2024/construct/219/stickman-parkour/index.html'},
     {name: 'Deathrun 3D', img: 'game-icons/deathrun3d.png', url: 'https://deathrun3d.github.io/file/'},
-    {name: 'Just Fall', img: 'game-icons/just-fall.png', url: 'https://justfallunblocked.github.io/file'}, //old one: https://just-fall.github.io/file/
+    {name: 'Just Fall', img: 'game-icons/just-fall.png', url: 'https://about:blank'}, //new one: https://justfallunblocked.github.io/file //old one: https://just-fall.github.io/file/
     {name: '1v1 LOL', img: 'game-icons/1v1lol.png', url: 'https://1v1lolonline.github.io/1v1-lol-2/'}, //blocked
     {name: 'Stickman Hook', img: 'game-icons/stickman-hook.jpg', url: 'https://stickmanhookonline.github.io/file/'}, 
     {name: 'Minecraft', img: 'game-icons/minecraft.jpg', url: 'https://eaglercraftonline.github.io/go/minecraft-1.5.2/'}, // fix + blocked
