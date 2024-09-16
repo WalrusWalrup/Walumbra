@@ -98,25 +98,29 @@ const games = [
     {name: 'Just Fall', img: 'game-icons/just-fall.png', url: 'https://justfallunblocked.github.io/file'},
     {name: '1v1 LOL', img: 'game-icons/1v1lol.png', url: 'https://1v1lol-unblocked-game.github.io/'}, 
     {name: 'Stickman Hook', img: 'game-icons/stickman-hook.jpg', url: 'https://stickmanhookonline.github.io/file/'}, 
-    {name: 'Minecraft', img: 'game-icons/minecraft.jpg', url: 'https://eaglercraftonline.github.io/go/minecraft-1.5.2/'}, // fix + blocked
-    {name: 'Retarded Geometry Dash', img: 'game-icons/cursed-geometry-dash.png', url: 'https://geometrylite.github.io/'}, 
-    {name: 'Happy Wheels', img: 'game-icons/happywheels.jpg', url: ' https://cbgamesdev.github.io/chilibowlflash/hw/index.html'}, 
+    {name: 'Minecraft', img: 'game-icons/minecraft.jpg', url: 'https://sd592g.github.io/zj684od4lfg/'}, // fixed (hopefully, also 1.5.2)
+    {name: 'Geometry Dash', img: 'game-icons/cursed-geometry-dash.png', url: 'https://geometrylite.github.io/'}, 
+    {name: 'Happy Wheels', img: 'game-icons/happywheels.jpg', url: 'https://shorturl.at/uza9A'}, //blocked
     {name: 'Suika Game', img: 'game-icons/suika-game.png', url: 'https://suika-game.github.io/file/'}, //blocked
     {name: 'Hole.io', img: 'game-icons/hole-io.png', url: 'https://holeioonline.github.io/file/'}, 
     {name: 'FNAF', img: 'game-icons/fnaf.jpg', url: 'https://fnaf-game.github.io/five-nights-at-freddys/'}, 
-    {name: 'FNAF 2', img: 'game-icons/fnaf2.png', url: 'https://cbgamesdev.github.io/chilibowlflash/FNAF/2/index.html'}, //blocked
+    //{name: 'FNAF 2', img: 'game-icons/fnaf2.png', url: 'https://cbgamesdev.github.io/chilibowlflash/FNAF/2/index.html'}, //blocked
     {name: 'FNAF 3', img: 'game-icons/fnaf3.png', url: 'https://biologyedu1808.github.io/g7/five-nights-at-freddys-3/'}, 
     {name: 'FNAF 4', img: 'game-icons/fnaf4.png', url: 'https://fnaf-4.github.io/games/FNAF4/index.html'}, 
-    {name: 'Retarded Slither.io', img: 'game-icons/slither-io.png', url: 'https://classroom247.pages.dev/slit/'}, // blocked
-    {name: 'Cookie Clicker', img: 'game-icons/cookie-clicker.png', url: 'https://cookieclickerunblocked.github.io/games/cookie-clicker/index.html'}, // blocked
+    {name: 'Slither.io', img: 'game-icons/slither-io.png', url: 'https://shorturl.at/cmMkj'},
+    {name: 'Cookie Clicker', img: 'game-icons/cookie-clicker.png', url: 'https://shorturl.at/zceOw'},
     {name: 'Smash Karts', img: 'game-icons/smash-karts.jpg', url: 'https://webgltest-17af1.firebaseapp.com/'}, 
-    {name: 'Among Us', img: 'game-icons/amongus.jpg', url: 'https://burgerbounty.github.io/s/among-us/'}, // blocked
-    {name: 'Drift Boss', img: 'game-icons/drift-boss.jpg', url: 'https://driftbossonline.github.io/file/'}, // blocked
-    {name: 'Drive Mad', img: 'game-icons/drive-mad.png', url: 'https://drivemadonline.github.io/file/ '}, //
+    {name: 'Among Us', img: 'game-icons/amongus.jpg', url: 'https://shorturl.at/FDve4'}, 
+    {name: 'Drift Boss', img: 'game-icons/drift-boss.jpg', url: 'https://shorturl.at/hbo11'}, 
+    {name: 'Drive Mad', img: 'game-icons/drive-mad.png', url: 'https://drivemadonline.github.io/file/ '}, 
     {name: 'Moto X3M', img: 'game-icons/motox3m.png', url: 'https://moto-x3m-online.github.io/file/'}, 
-    {name: 'Moto X3M Spooky Land', img: 'game-icons/motox3m-spooky-land.jpg', url: 'https://motox3monline.github.io/g/moto-x3m-spooky-land/'}, // blocked
-    {name: 'Moto X3M Pool Party', img: 'game-icons/motox3m-pool-party.jpeg', url: 'https://motox3monline.github.io/g/moto-x3m-pool-party/'}, // blocked
-    {name: 'Tomb of the Mask', img: 'game-icons/tomb-of-the-mask.png', url: 'https://classwork188.github.io/g8/tomb-of-the-mask/'}, //blocked
+    {name: 'Moto X3M 2', img: 'game-icons/motox3m-2.png', url: 'https://motox3m.gitlab.io/game/motox3m-2/'}, 
+    {name: 'Moto X3M 3', img: 'game-icons/motox3m-3.png', url: 'https://motox3m.gitlab.io/game/motox3m-3/'}, 
+    {name: 'Moto X3M Spooky Land', img: 'game-icons/motox3m-spooky-land.jpg', url: 'https://motox3m.gitlab.io/game/moto-x3m-spooky-land/'},
+    {name: 'Moto X3M Pool Party', img: 'game-icons/motox3m-pool-party.jpeg', url: 'https://motox3m.gitlab.io/game/moto-x3m-5-pool-party/'},
+    {name: 'Moto X3M Winter', img: 'game-icons/motox3m-winter.png', url: 'https://motox3m.gitlab.io/game/moto-x3m-4-winter/'},
+    {name: 'Tomb of the Mask', img: 'game-icons/tomb-of-the-mask.png', url: 'https://classwork188.github.io/g8/tomb-of-the-mask/'}, 
+    {name: 'Funny Shooter 2', img: 'game-icons/funny-shooter-2.jpeg', url: 'https://funnyshooter.github.io/file/'}
 ];
 
 const gameList = document.getElementById('game-list');
