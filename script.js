@@ -98,7 +98,7 @@ const games = [
     {name: 'Just Fall', img: 'game-icons/just-fall.png', url: 'https://justfallunblocked.github.io/file'},
     {name: '1v1 LOL', img: 'game-icons/1v1lol.png', url: 'https://1v1lol-unblocked-game.github.io/'}, 
     {name: 'Stickman Hook', img: 'game-icons/stickman-hook.jpg', url: 'https://stickmanhookonline.github.io/file/'}, 
-    {name: 'Minecraft', img: 'game-icons/minecraft.jpg', url: 'https://sd592g.github.io/zj684od4lfg/'}, // fixed (hopefully, also 1.5.2)
+    //{name: 'Minecraft', img: 'game-icons/minecraft.jpg', url: 'https://sd592g.github.io/zj684od4lfg/'}, // fixed (hopefully, also 1.5.2)
     {name: 'Geometry Dash', img: 'game-icons/cursed-geometry-dash.png', url: 'https://geometrylite.github.io/'}, 
     {name: 'Happy Wheels', img: 'game-icons/happywheels.jpg', url: 'https://shorturl.at/uza9A'}, //blocked
     {name: 'Suika Game', img: 'game-icons/suika-game.png', url: 'https://suika-game.github.io/file/'}, //blocked
@@ -120,7 +120,7 @@ const games = [
     {name: 'Moto X3M Pool Party', img: 'game-icons/motox3m-pool-party.jpeg', url: 'https://motox3m.gitlab.io/game/moto-x3m-5-pool-party/'},
     {name: 'Moto X3M Winter', img: 'game-icons/motox3m-winter.png', url: 'https://motox3m.gitlab.io/game/moto-x3m-4-winter/'},
     {name: 'Tomb of the Mask', img: 'game-icons/tomb-of-the-mask.png', url: 'https://classwork188.github.io/g8/tomb-of-the-mask/'}, 
-    {name: 'Funny Shooter 2', img: 'game-icons/funny-shooter-2.jpeg', url: 'https://funnyshooter.github.io/file/'},
+    {name: 'Funny Shooter 2', img: 'game-icons/funny-shooter-2.jpeg', url: 'https://vex-game.github.io/a4/funny-shooter-2/'},
     {name: 'OvO', img: 'game-icons/ovo.png', url: 'https://shorturl.at/eV4Um'}
 ];
 
