@@ -120,7 +120,8 @@ const games = [
     {name: 'Moto X3M Pool Party', img: 'game-icons/motox3m-pool-party.jpeg', url: 'https://motox3m.gitlab.io/game/moto-x3m-5-pool-party/'},
     {name: 'Moto X3M Winter', img: 'game-icons/motox3m-winter.png', url: 'https://motox3m.gitlab.io/game/moto-x3m-4-winter/'},
     {name: 'Tomb of the Mask', img: 'game-icons/tomb-of-the-mask.png', url: 'https://classwork188.github.io/g8/tomb-of-the-mask/'}, 
-    {name: 'Funny Shooter 2', img: 'game-icons/funny-shooter-2.jpeg', url: 'https://funnyshooter.github.io/file/'}
+    {name: 'Funny Shooter 2', img: 'game-icons/funny-shooter-2.jpeg', url: 'https://funnyshooter.github.io/file/'},
+    {name: 'OvO', img: 'game-icons/ovo.png', url: 'https://shorturl.at/eV4Um'}
 ];
 
 const gameList = document.getElementById('game-list');
