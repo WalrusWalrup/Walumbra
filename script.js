@@ -104,7 +104,7 @@ const games = [
     {name: 'Suika Game', img: 'game-icons/suika-game.png', url: 'https://suika-game.github.io/file/'}, //blocked
     {name: 'Hole.io', img: 'game-icons/hole-io.png', url: 'https://holeioonline.github.io/file/'}, 
     {name: 'FNAF', img: 'game-icons/fnaf.jpg', url: 'https://fnaf-game.github.io/five-nights-at-freddys/'}, 
-    //{name: 'FNAF 2', img: 'game-icons/fnaf2.png', url: 'https://cbgamesdev.github.io/chilibowlflash/FNAF/2/index.html'}, //blocked
+    {name: 'FNAF 2', img: 'game-icons/fnaf2.png', url: 'https://ruihq.github.io/FNAF2/'}, 
     {name: 'FNAF 3', img: 'game-icons/fnaf3.png', url: 'https://biologyedu1808.github.io/g7/five-nights-at-freddys-3/'}, 
     {name: 'FNAF 4', img: 'game-icons/fnaf4.png', url: 'https://fnaf-4.github.io/games/FNAF4/index.html'}, 
     {name: 'Slither.io', img: 'game-icons/slither-io.png', url: 'https://shorturl.at/cmMkj'},
@@ -121,7 +121,9 @@ const games = [
     {name: 'Moto X3M Winter', img: 'game-icons/motox3m-winter.png', url: 'https://motox3m.gitlab.io/game/moto-x3m-4-winter/'},
     {name: 'Tomb of the Mask', img: 'game-icons/tomb-of-the-mask.png', url: 'https://classwork188.github.io/g8/tomb-of-the-mask/'}, 
     {name: 'Funny Shooter 2', img: 'game-icons/funny-shooter-2.jpeg', url: 'https://vex-game.github.io/a4/funny-shooter-2/'},
-    {name: 'OvO', img: 'game-icons/ovo.png', url: 'https://shorturl.at/eV4Um'}
+    {name: 'OvO', img: 'game-icons/ovo.png', url: 'https://shorturl.at/eV4Um'},
+    {name: 'Poly Track', img: 'game-icons/poly-track.jpg', url: 'https://shorturl.at/wDxDh'},
+    {name: 'Rocket League', img: 'game-icons/rocket-league.jpg', url: 'https://biologyedu1808.github.io/g6/rocket-soccer-derby/'}
 ];
 
 const gameList = document.getElementById('game-list');
