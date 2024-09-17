@@ -13,5 +13,5 @@ Versions:
   Full screen mode
 16/9/2024 - Version 1.2:
   New games, game fixes, and game unblockages
-17/9/2024 - Version 1.25:
+17/9/2024 - Version 1.2.5:
   New games
