@@ -139,15 +139,19 @@ const gameList = document.getElementById('game-list');
 const gameFrame = document.getElementById('game-frame');
 const exitButton = document.getElementById('exit-game');
 const fullscreenButton = document.getElementById('fullscreen-button');
+const fullscreenNewTabButton = document.getElementById('fullscreen-new-tab-button');
 
 // Toggle button visibility based on game state
 function updateButtonVisibility(showGame) {
     if (showGame) {
         exitButton.style.display = 'block'; // Show the exit button
         fullscreenButton.style.display = 'block'; // Show the fullscreen button
+        fullscreenNewTabButton.style.display = 'block'; // Show the fullscreen new tab button
     } else {
         exitButton.style.display = 'none'; // Hide the exit button
         fullscreenButton.style.display = 'none'; // Hide the fullscreen button
+        fullscreenNewTabButton.style.display = 'none';  // Hide the fullscreen new tab button
+
     }
 }
 
@@ -168,7 +172,10 @@ function closeGame() {
 }
 
 // Load games into the list
+let selectedGameUrl = ''; // Global variable to hold the selected game's URL
+
 games.forEach(game => {
+
     const gameItem = document.createElement('div');
     gameItem.className = 'game-item';
     gameItem.innerHTML = `
@@ -179,10 +186,47 @@ games.forEach(game => {
         gameFrame.src = game.url;
         gameFrame.style.display = 'block'; // Show the iframe
         updateButtonVisibility(true); // Show buttons
+
+         // Store the selected game's URL
+         selectedGameUrl = game.url;
     });
     gameList.appendChild(gameItem);
 });
 
+function toggleFullScreenNewTab() {
+    if (!selectedGameUrl) {
+        alert('No game selected!');
+        return;
+    }
+    const newTab = window.open('', '_blank');
+
+    newTab.document.open();
+    newTab.document.write(`
+        <html>
+            <head>
+                <style>
+                    body, html {
+                        margin: 0;
+                        padding: 0;
+                        height: 100%;
+                    }
+                    iframe {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                    }
+                </style>
+            </head>
+            <body>
+                <iframe src="${selectedGameUrl}"></iframe>
+            </body>
+        </html>
+    `);
+    newTab.document.close();
+    closeGame();
+}
+
 // Add event listeners to buttons
 exitButton.addEventListener('click', closeGame);
 fullscreenButton.addEventListener('click', toggleFullScreen);
+fullscreenNewTabButton.addEventListener('click', toggleFullScreenNewTab)
