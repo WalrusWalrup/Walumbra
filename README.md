@@ -15,3 +15,7 @@ Versions:
   New games, game fixes, and game unblockages
 17/9/2024 - Version 1.2.5:
   New games
+18/9/2024 - Version 1.3:
+  New games
+  Open in New Tab button
+  Code reorganisation
