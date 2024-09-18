@@ -229,4 +229,4 @@ function toggleFullScreenNewTab() {
 // Add event listeners to buttons
 exitButton.addEventListener('click', closeGame);
 fullscreenButton.addEventListener('click', toggleFullScreen);
-fullscreenNewTabButton.addEventListener('click', toggleFullScreenNewTab)
+fullscreenNewTabButton.addEventListener('click', toggleFullScreenNewTab);
