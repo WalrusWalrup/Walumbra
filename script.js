@@ -19,7 +19,7 @@ document.querySelector('nav a[data-tab="home"]').click();
 
 // Populate favicon dropdown
 const faviconFolder = 'favicons/';
-const favicons = ['blank.ico', 'classroom.png', 'default.png', 'gmail.ico', 'google.ico'];
+const favicons = ['blank.png', 'classroom.png', 'default.png', 'gmail.ico', 'google.ico'];
 const faviconSelect = document.getElementById('favicon-select');
 
 favicons.forEach(icon => {
