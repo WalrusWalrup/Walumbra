@@ -123,7 +123,16 @@ const games = [
     {name: 'Funny Shooter 2', img: 'game-icons/funny-shooter-2.jpeg', url: 'https://vex-game.github.io/a4/funny-shooter-2/'},
     {name: 'OvO', img: 'game-icons/ovo.png', url: 'https://shorturl.at/eV4Um'},
     {name: 'Poly Track', img: 'game-icons/poly-track.jpg', url: 'https://shorturl.at/wDxDh'},
-    {name: 'Rocket League', img: 'game-icons/rocket-league.jpg', url: 'https://biologyedu1808.github.io/g6/rocket-soccer-derby/'}
+    {name: 'Rocket League', img: 'game-icons/rocket-league.jpg', url: 'https://biologyedu1808.github.io/g6/rocket-soccer-derby/'},
+    {name: 'Parking Fury', img: 'game-icons/parking-fury.png', url: 'https://htmlxm.github.io/h/parking-fury'},
+    {name: 'Parking Fury 2', img: 'game-icons/parking-fury-2.png', url: 'https://biologyedu1808.github.io/g/parking-fury-2/'},
+    {name: 'Stick Defenders', img: 'game-icons/stick-defenders.png', url: 'https://htmlxm.github.io/h6/stick-defenders/'},
+    {name: 'Blocky Cars', img: 'game-icons/blockycars.png', url: 'https://htmlxm.github.io/h2/blocky-cars/'},
+    {name: 'Monkey Mart', img: 'game-icons/monkeymart.jpg', url: 'https://htmlxm.github.io/h8/monkey-mart/'},
+    {name: 'Gobble', img: 'game-icons/gobble.png', url: 'https://htmlxm.github.io/h4/gobble/'},
+    {name: 'Stack', img: 'game-icons/stack.png', url: 'https://htmlxm.github.io/h2/stack/'},
+    {name: 'Tiny Fishing', img: 'game-icons/tinyfishing.jpg', url: 'https://htmlxm.github.io/h/tiny-fishing/'},
+
 ];
 
 const gameList = document.getElementById('game-list');
