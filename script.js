@@ -132,6 +132,10 @@ const games = [
     {name: 'Gobble', img: 'game-icons/gobble.png', url: 'https://htmlxm.github.io/h4/gobble/'},
     {name: 'Stack', img: 'game-icons/stack.png', url: 'https://htmlxm.github.io/h2/stack/'},
     {name: 'Tiny Fishing', img: 'game-icons/tinyfishing.jpg', url: 'https://htmlxm.github.io/h/tiny-fishing/'},
+    {name: 'Snow Rider', img: 'game-icons/snow-rider-3d.png', url: 'https://shorturl.at/XK8BC'},
+    {name: 'Subway Surfers', img: 'game-icons/subway-surfers.png', url: 'https://shorturl.at/TsQ3g'},
+    {name: 'Drift Hunters', img: 'game-icons/drift-hunters.jpg', url: 'https://shorturl.at/aZB3b'},
+    {name: 'Retro Bowl', img: 'game-icons/retro-bowl.png', url: 'https://shorturl.at/j8wsw'},
 
 ];
 
